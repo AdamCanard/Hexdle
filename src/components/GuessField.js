@@ -19,11 +19,11 @@ export default function GuessField() {
     <>
       <div
         id="guess field"
-        className="flex flex-row w-72 pt-8 gap-2 justify-start items-center"
+        className="flex flex-row w-72 gap-2 justify-center items-center"
       >
-        <InputBox label={"R"} getter={red} setter={setRed} />
-        <InputBox label={"G"} getter={green} setter={setGreen} />
-        <InputBox label={"B"} getter={blue} setter={setBlue} />
+        <InputBox label={"R:"} getter={red} setter={setRed} />
+        <InputBox label={"G:"} getter={green} setter={setGreen} />
+        <InputBox label={"B:"} getter={blue} setter={setBlue} />
         <Button value={"Guess"} onClick={makeGuess} />
       </div>
     </>

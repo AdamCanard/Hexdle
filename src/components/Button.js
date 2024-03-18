@@ -7,7 +7,7 @@ export default function Button(props) {
     id = "",
     onClick = () => {},
     disabled = false,
-    className = "py-2 px-8 rounded-md hover:cursor-pointer h-full hover:outline hover: ",
+    className = "py-2 px-4 rounded-md hover:cursor-pointer h-full hover:outline hover: ",
   } = props;
   return (
     <label className={""}>

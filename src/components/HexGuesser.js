@@ -25,14 +25,19 @@ export default function HexGuesser() {
 
   return (
     <CodeContext.Provider value={value}>
+      <div className="flex justify-center items-center">
+        <h1 className="w-[35rem] h-12 font-bold text-center  text-5xl border-b-2 border-black">
+          Hexdle
+        </h1>
+      </div>
       <div
-        className="flex w-full h-full justify-center gap-14 pt-12 border-2 border-black"
+        className="flex w-full h-full justify-center gap-14 pt-8 "
         suppressHydrationWarning={true}
       >
         <HexBox />
-        <GuessBox code={code} />
       </div>
-      <div className="flex flex-col w-full justify-center items-center">
+
+      <div className="flex flex-col w-72 pl-2 mt-2 m-auto justify-center items-center border-2 rounded-lg border-slate-950">
         <GuessField />
         <GuessList />
       </div>

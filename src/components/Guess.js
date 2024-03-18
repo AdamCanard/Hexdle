@@ -10,7 +10,7 @@ export default function Guess({ guess, answer }) {
 
   return (
     <>
-      <div className="flex flex-row justify-start items-center gap-2">
+      <div className="flex flex-row justify-center items-center gap-2">
         <SingleGuess type={"red"} value={red} correctness={correctness.red} />
         <SingleGuess
           type={"green"}
@@ -22,7 +22,7 @@ export default function Guess({ guess, answer }) {
           value={blue}
           correctness={correctness.blue}
         />
-        {"--->"}
+        {"-->"}
         <ColorBox bg={"#" + red + green + blue} size={"b"} />
       </div>
     </>

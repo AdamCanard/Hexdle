@@ -5,8 +5,8 @@ export default function InputBox({ label, getter, setter }) {
       <input
         maxLength={"2"}
         value={getter}
-        className="border-solid border-black border-2 w-12"
-        onChange={(e) => setter(e.target.value)}
+        className="border-solid border-black border-2 w-12 text-center"
+        onChange={(e) => setter(e.target.value.toUpperCase())}
         type="text"
       />
     </div>

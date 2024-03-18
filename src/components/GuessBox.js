@@ -17,15 +17,14 @@ export default function GuessBox({ code }) {
   useEffect(() => {
     setTextColor(InverseHex(color));
   }, [color]);
+
   return (
     <div
       style={{
-        height: "250px",
-        width: "250px",
-        border: "2px black solid",
         backgroundColor: "#" + color,
         color: "#" + textColor,
       }}
+      className="flex size-48 rounded-full border-2 border-black text-center items-center justify-center"
     >
       {color}
     </div>

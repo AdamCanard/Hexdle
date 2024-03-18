@@ -5,7 +5,6 @@ export default function HexGen() {
   while (hexCode.length < 6) {
     let newcode = Math.floor(Math.random() * max);
     hexCode += newcode.toString(16);
-    hexCode += newcode.toString(16);
   }
   return hexCode;
 }
