@@ -7,10 +7,10 @@ export default function Compare(guess, answer) {
   const answerBlue = parseInt(answer[4], 16);
 
   const correctness = {
-    red: guessRed < answerRed ? "▲" : guessRed > answerRed ? "▼" : "=",
+    red: guessRed < answerRed ? "▲" : guessRed > answerRed ? "▼" : "✓",
     green:
-      guessGreen < answerGreen ? "▲" : guessGreen > answerGreen ? "▼" : "=",
-    blue: guessBlue < answerBlue ? "▲" : guessBlue > answerBlue ? "▼" : "=",
+      guessGreen < answerGreen ? "▲" : guessGreen > answerGreen ? "▼" : "✓",
+    blue: guessBlue < answerBlue ? "▲" : guessBlue > answerBlue ? "▼" : "✓",
   };
 
   return correctness;

@@ -2,7 +2,7 @@
 import { useEffect, useState, useContext } from "react";
 import HexGen from "./HexGen";
 import InverseHex from "./InverseHex";
-import { CodeContext } from "@/app/page";
+import { CodeContext } from "./HexGuesser";
 
 export default function HexBox() {
   const [color, setColor] = useState("");
