@@ -1,4 +1,3 @@
-"use client";
 export default function HexGen() {
   const max = 16;
   let hexCode = "";

@@ -1,10 +1,9 @@
-"use client";
 function flip(hexValue) {
   let hexOne = parseInt(hexValue[0], 16);
   let hexTwo = parseInt(hexValue[1], 16);
 
-  hexOne = 15 - hexOne;
-  hexTwo = 15 - hexTwo;
+  hexOne = Math.abs(15 - hexOne);
+  hexTwo = Math.abs(15 - hexTwo);
 
   return hexOne.toString(16).toUpperCase() + hexTwo.toString(16).toUpperCase();
 }

@@ -11,8 +11,10 @@ export default function GuessField() {
   const [blue, setBlue] = useState("");
 
   const makeGuess = () => {
-    setCode(red + green + blue);
-    addGuess(red, green, blue);
+    if (red != "" && green != "" && blue != "") {
+      setCode(red + green + blue);
+      addGuess(red, green, blue);
+    }
   };
 
   return (
