@@ -15,6 +15,20 @@ module.exports = {
       fontFamily: {
         text: ["var(--font-kode-mono)"],
       },
+      borderWidth: {
+        3: "3px",
+      },
+      keyframes: {
+        roll: {
+          "0%": { "border-left-width": "4px", "border-bottom-width": "0px" },
+          "33%": { "border-top-width": "4px", "border-left-width": "0px" },
+          "66%": { "border-right-width": "4px", "border-top-width": "0px" },
+          "100%": { "border-bottom-width": "4px", "border-right-width": "0px" },
+        },
+      },
+      animation: {
+        roll: "roll 0.5s ease-in-out infinite",
+      },
     },
   },
   plugins: [],
