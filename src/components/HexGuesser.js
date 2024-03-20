@@ -47,23 +47,23 @@ export default function HexGuesser() {
 
   return (
     <CodeContext.Provider value={value}>
-      <Overlay isOn={winFlag} onClose={() => setWinFlag(!winFlag)}>
-        <div className="bg-[#f3dfc1] text-[#1a1c1a] w-full h-screen mix-blend-multiply overflow-auto">
-          <div className="flex justify-center items-center">
-            <h1 className="w-[35rem] h-12 font-bold text-center  text-5xl border-b-2 border-black">
-              Hexdle
-            </h1>
-            <Button label={"WIN"} onClick={() => setWinFlag(!winFlag)}></Button>
-          </div>
-          <div className="flex w-full justify-center gap-14 pt-8 ">
-            <HexBox />
-          </div>
-          <div className="flex flex-col w-72 py-2 mt-2 m-auto justify-center items-center border-2 rounded-lg border-slate-950">
-            <GuessField />
-            <GuessList />
-          </div>
+      {/* <Overlay isOn={winFlag} onClose={() => setWinFlag(!winFlag)}> */}
+      <div className="bg-[#f3dfc1] text-[#1a1c1a] w-full h-screen mix-blend-multiply overflow-auto">
+        <div className="flex justify-center items-center">
+          <h1 className="w-[35rem] h-12 font-bold text-center  text-5xl border-b-2 border-black">
+            Hexdle
+          </h1>
+          {/* <Button label={"WIN"} onClick={() => setWinFlag(!winFlag)}></Button> */}
         </div>
-      </Overlay>
+        <div className="flex w-full justify-center gap-14 pt-8 ">
+          <HexBox />
+        </div>
+        <div className="flex flex-col w-72 py-2 mt-2 m-auto justify-center items-center border-2 rounded-lg border-slate-950">
+          <GuessField />
+          <GuessList />
+        </div>
+      </div>
+      {/* </Overlay> */}
     </CodeContext.Provider>
   );
 }

@@ -10,7 +10,7 @@ export default function Overlay({ isOn, onClose, children }) {
         >
           <div
             id="How to play"
-            className="w-[30rem] h-[42rem] bg-[#fff0da] text-[#112A46] overflow-auto absolute z-10"
+            className="w-[30rem] h-full bg-[#fff0da] text-[#112A46] overflow-auto absolute z-10"
           >
             <h2>Welcome to Hexdle!</h2>
             <h3>How to play</h3>
