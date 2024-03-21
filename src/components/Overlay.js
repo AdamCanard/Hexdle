@@ -1,6 +1,113 @@
+import { useState } from "react";
 import Button from "./Button";
 
+const whatHexCodeText = (
+  <div>
+    <p className="text-s">
+      Hex color codes are the background of the internet. Every color you see on
+      a screen can be determined by a Hexcode. A Hexcode is made of 6
+      hexadecimal values lead by a hashtag, Ex. #FF80E3 #AB05C9
+    </p>
+  </div>
+);
+const whatHexadecimalText = (
+  <div>
+    <p className="text-s">
+      Hexadecimals are the same a regular decimals which use 10 different digits
+      to represent a number. Hexadecimal is in base16, meaning its made of 16
+      digits instead.
+    </p>
+    <div className="flex justify-evenly bg-[#DAE9FF]">
+      <div>
+        Base10:
+        <div className="flex p-2 bg-[#80B9FF] justify-center items-center text-[#000000] border-2 border-black">
+          0 1 2 3 4 5 6 7 8 9
+        </div>
+        5, 13, 35, 100, 160, 250
+      </div>
+      <p className="flex leading-10 "> ==&gt;</p>
+      <div>
+        Base16:
+        <div className="flex p-2 bg-[#80B9FF] justify-center items-center text-[#000000] border-2 border-black">
+          0 1 2 3 4 5 6 7 8 9 A B C D E F
+        </div>
+        00, 46, 7D, A3, BE, E0, F5
+      </div>
+    </div>
+  </div>
+);
+
+const howText = (
+  <>
+    <p>
+      Hexcodes determine color by a differing amount of red, green, and blue
+      values. Each color is represented by 2 hexadecimals values and the
+      combinination of these values make up the colors you see on a screen. The
+      smallest value #000000, represents black because it lacks all three
+      colors. The largest value is #FFFFFF, represents white because it is the
+      combinination of all three colors.
+    </p>
+  </>
+);
+
+const whyText = (
+  <>
+    <div id="Why">
+      <p>
+        With only 2 hexadecimals, you can count up to 255, which in
+        &lsquo;hex&rsquo; is represented as FF. Hexadecimals are not very
+        different from the digits your used to, where from right to left each
+        digit gets 10 times larger, in hexadecimals each digit is 16 times
+        larger
+      </p>
+
+      <div className="flex w-[28rem] flex-col justify-evenly m-auto pl-2 pr-2 bg-[#DAE9FF]">
+        <div>
+          255 in base10 is counted with this formula:
+          <div className="flex leading-3 p-4 bg-[#80B9FF] justify-center items-center text-[#000000] border-2 border-black">
+            (255)<sub>10</sub> = (2 x 10<sup>2</sup>) + (5 x 10
+            <sup>1</sup>) + (5 x 10<sup>0</sup>)
+          </div>
+        </div>
+
+        <div>
+          It would look like this in base16:
+          <div className="flex p-2 bg-[#80B9FF] justify-center items-center text-[#000000] border-2 border-black">
+            (FF)<sub>16</sub> = (15 x 16<sup>1</sup>) + (15 x 16
+            <sup>0</sup>)
+          </div>
+        </div>
+      </div>
+    </div>
+  </>
+);
 export default function Overlay({ isOn, onClose, children }) {
+  const [whatHexCode, setWhatHexcode] = useState(false);
+  const [whatHexadecimal, setWhatHexadecimal] = useState(false);
+  const [why, setWhy] = useState(false);
+  const [how, setHow] = useState(false);
+
+  function DropdownText({ title, setter, getter, children }) {
+    console.log(children);
+    return (
+      <div className="group">
+        <div className="flex flex-row " onClick={() => setter(!getter)}>
+          <h5 className="font-bold text-lg group-hover:underline">{title}</h5>
+          <div
+            className={
+              !getter
+                ? "pl-1 leading-7 rotate-0 duration-300 group-hover:-rotate-90 group-hover:leading-8"
+                : "pl-1 leading-7 -rotate-90 duration-300 group-hover:leading-8"
+            }
+          >
+            ◀
+          </div>
+        </div>
+        {getter ? children : <></>}
+      </div>
+    );
+  }
+
   return (
     <>
       {isOn ? (
@@ -20,57 +127,38 @@ export default function Overlay({ isOn, onClose, children }) {
               Creator of your Favourite Hexcode Guesing Game
             </h4>
 
-            <h5 className="font-bold text-lg">What is a Hexcode?</h5>
-            <p className="text-s ">
-              Hex color codes are the background of the internet. Every color
-              you see on a screen can be determined by a Hexcode, your job is to
-              guess one of them. Don't worry we will hold your hand though it.
-              Hexcodes determine color by a differing amount of red, green blue
-              values. Each Hexcode is made of 6 hexadecimals, 2 for each color.
-              Hexadecimals are the same a regular decimals which use 10
-              different digits to represent a number. Hexadecimal is in base16,
-              meaning its made of 16 digits instead.{" "}
-            </p>
-            <div className="flex justify-evenly bg-[#DAE9FF]">
-              <div>
-                Base10:
-                <div className="flex p-2 bg-[#80B9FF] justify-center items-center text-[#000000] border-2 border-black">
-                  0 1 2 3 4 5 6 7 8 9
-                </div>
-                5, 13, 35, 100, 160, 250
-              </div>
-              <p className="flex leading-10 "> ==&gt;</p>
-              <div>
-                Base16:
-                <div className="flex p-2 bg-[#80B9FF] justify-center items-center text-[#000000] border-2 border-black">
-                  0 1 2 3 4 5 6 7 8 9 A B C D E F
-                </div>
-                00, 46, 7D, A3, BE, E0, F5
-              </div>
-            </div>
-            <p>
-              With only 2 hexadecimals, you can count up to 255, which in 'hex'
-              is represented as FF. Hexadecimals are not very different from the
-              digits your used to, where from right to left each digit gets 10
-              times larger, in hexadecimals each digit is 16 times larger
-            </p>
-            <div className="flex w-[28rem] flex-col justify-evenly bg-[#DAE9FF]">
-              <div>
-                255 in base10 is counted with this formula:
-                <div className="flex leading-3 p-4 bg-[#80B9FF] justify-center items-center text-[#000000] border-2 border-black">
-                  (255)<sub>10</sub> = (2 x 10<sup>2</sup>) + (5 x 10
-                  <sup>1</sup>) + (5 x 10<sup>0</sup>)
-                </div>
-              </div>
+            <DropdownText
+              title={"What is a Hexcode?"}
+              setter={setWhatHexcode}
+              getter={whatHexCode}
+            >
+              {whatHexCodeText}
+            </DropdownText>
 
-              <div>
-                It would look like this in base16:
-                <div className="flex p-2 bg-[#80B9FF] justify-center items-center text-[#000000] border-2 border-black">
-                  (FF)<sub>16</sub> = (15 x 16<sup>1</sup>) + (15 x 16
-                  <sup>0</sup>)
-                </div>
-              </div>
-            </div>
+            <DropdownText
+              title={"What is a Hexdecimal?"}
+              setter={setWhatHexadecimal}
+              getter={whatHexadecimal}
+            >
+              {whatHexadecimalText}
+            </DropdownText>
+
+            <DropdownText
+              title={"How do Hexcodes work?"}
+              setter={setHow}
+              getter={how}
+            >
+              {howText}
+            </DropdownText>
+
+            <DropdownText
+              title={"Why use a Hexcode?"}
+              setter={setWhy}
+              getter={why}
+            >
+              {whyText}
+            </DropdownText>
+
             <h3 className="inline-block pt-4 font-extrabold text-2xl border-b-3 border-black">
               How to play
             </h3>
