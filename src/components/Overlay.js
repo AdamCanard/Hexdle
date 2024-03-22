@@ -81,32 +81,39 @@ const whyText = (
     </div>
   </>
 );
+
+function DropdownText({ title, setter, getter, children }) {
+  console.log(children);
+  return (
+    <div className="group/outer">
+      <div
+        className="flex flex-row group/inner hover:animate-horBounceFor hover:leading-7"
+        onClick={() => setter(!getter)}
+      >
+        <h5 className="font-bold text-lg group-hover/inner:underline ">
+          {title}
+        </h5>
+        <div
+          className={
+            !getter
+              ? "pl-1 leading-7 rotate-0 duration-300 group-hover/inner:-rotate-90 group-hover/inner:leading-8"
+              : "pl-1 leading-7 -rotate-90 duration-300 group-hover/inner:leading-8"
+          }
+        >
+          ◀
+        </div>
+      </div>
+      {getter ? children : <></>}
+    </div>
+  );
+}
+
 export default function Overlay({ isOn, onClose, children }) {
   const [whatHexCode, setWhatHexcode] = useState(false);
   const [whatHexadecimal, setWhatHexadecimal] = useState(false);
   const [why, setWhy] = useState(false);
   const [how, setHow] = useState(false);
-
-  function DropdownText({ title, setter, getter, children }) {
-    console.log(children);
-    return (
-      <div className="group">
-        <div className="flex flex-row " onClick={() => setter(!getter)}>
-          <h5 className="font-bold text-lg group-hover:underline">{title}</h5>
-          <div
-            className={
-              !getter
-                ? "pl-1 leading-7 rotate-0 duration-300 group-hover:-rotate-90 group-hover:leading-8"
-                : "pl-1 leading-7 -rotate-90 duration-300 group-hover:leading-8"
-            }
-          >
-            ◀
-          </div>
-        </div>
-        {getter ? children : <></>}
-      </div>
-    );
-  }
+  const [help, setHelp] = useState(false);
 
   return (
     <>
@@ -127,36 +134,38 @@ export default function Overlay({ isOn, onClose, children }) {
               Creator of your Favourite Hexcode Guesing Game
             </h4>
 
-            <DropdownText
-              title={"What is a Hexcode?"}
-              setter={setWhatHexcode}
-              getter={whatHexCode}
-            >
-              {whatHexCodeText}
-            </DropdownText>
+            <DropdownText title={"Help"} setter={setHelp} getter={help}>
+              <DropdownText
+                title={"What is a Hexcode?"}
+                setter={setWhatHexcode}
+                getter={whatHexCode}
+              >
+                {whatHexCodeText}
+              </DropdownText>
 
-            <DropdownText
-              title={"What is a Hexdecimal?"}
-              setter={setWhatHexadecimal}
-              getter={whatHexadecimal}
-            >
-              {whatHexadecimalText}
-            </DropdownText>
+              <DropdownText
+                title={"What is a Hexdecimal?"}
+                setter={setWhatHexadecimal}
+                getter={whatHexadecimal}
+              >
+                {whatHexadecimalText}
+              </DropdownText>
 
-            <DropdownText
-              title={"How do Hexcodes work?"}
-              setter={setHow}
-              getter={how}
-            >
-              {howText}
-            </DropdownText>
+              <DropdownText
+                title={"How do Hexcodes work?"}
+                setter={setHow}
+                getter={how}
+              >
+                {howText}
+              </DropdownText>
 
-            <DropdownText
-              title={"Why use a Hexcode?"}
-              setter={setWhy}
-              getter={why}
-            >
-              {whyText}
+              <DropdownText
+                title={"Why use a Hexcode?"}
+                setter={setWhy}
+                getter={why}
+              >
+                {whyText}
+              </DropdownText>
             </DropdownText>
 
             <h3 className="inline-block pt-4 font-extrabold text-2xl border-b-3 border-black">
